@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# 输出 / 临时
+*.tmp
+.DS_Store
+Thumbs.db
+
+# 个人数据（单证含真实客户信息，不要提交）
+单证输出/
+output/
+*.docx
+!examples/*.docx

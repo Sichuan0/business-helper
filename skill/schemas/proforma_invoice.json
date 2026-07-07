@@ -1,0 +1,110 @@
+{
+  "doc_type": "proforma_invoice",
+  "name_cn": "形式发票",
+  "name_en": "Proforma Invoice",
+  "code": "PI",
+  "required": [
+    "pi_number",
+    "seller_name",
+    "buyer_name",
+    "incoterms",
+    "currency",
+    "payment_terms",
+    "items"
+  ],
+  "auto": {
+    "pi_date": "未指定则用今天日期",
+    "total_amount": "由 items 各行 total_price 求和得出",
+    "items[].total_price": "由 quantity * unit_price 计算，不要问用户"
+  },
+  "optional": [
+    "seller_address",
+    "seller_contact",
+    "seller_tax_id",
+    "buyer_address",
+    "buyer_contact",
+    "buyer_tax_id",
+    "delivery_time",
+    "validity",
+    "origin",
+    "shipping_method",
+    "remarks",
+    "items[].hs_code",
+    "items[].origin"
+  ],
+  "fields": {
+    "pi_number": {
+      "label": "PI 编号",
+      "example": "PI-2026-001",
+      "note": "未给时建议一个格式（如 PI-YYYY-NNN）并问用户确认，不要静默生成"
+    },
+    "pi_date": {
+      "label": "出具日期",
+      "example": "2026-07-07",
+      "note": "未给则用今天，不必问"
+    },
+    "seller_name": {
+      "label": "卖方公司名称",
+      "example": "Shanghai ABC Trading Co., Ltd."
+    },
+    "seller_address": { "label": "卖方地址" },
+    "seller_contact": {
+      "label": "卖方联系方式",
+      "example": "Tel: +86-21-12345678  Email: sales@abc.com"
+    },
+    "seller_tax_id": { "label": "卖方税号 / 统一社会信用代码" },
+    "buyer_name": {
+      "label": "买方公司名称",
+      "example": "XYZ Import GmbH"
+    },
+    "buyer_address": { "label": "买方地址" },
+    "buyer_contact": { "label": "买方联系方式" },
+    "buyer_tax_id": { "label": "买方税号 / VAT" },
+    "incoterms": {
+      "label": "贸易术语",
+      "example": "FOB Shanghai / CIF Hamburg / EXW",
+      "note": "尽量含装运港/目的港"
+    },
+    "currency": {
+      "label": "币种",
+      "example": "USD / CNY / EUR"
+    },
+    "payment_terms": {
+      "label": "付款条件",
+      "example": "30% T/T in advance, 70% before shipment"
+    },
+    "delivery_time": {
+      "label": "交货期",
+      "example": "30 days after order confirmation"
+    },
+    "validity": {
+      "label": "报价有效期",
+      "example": "This PI is valid for 30 days"
+    },
+    "origin": { "label": "原产地", "example": "China" },
+    "shipping_method": { "label": "运输方式", "example": "By sea / By air" },
+    "remarks": { "label": "备注" },
+    "items": {
+      "label": "产品明细",
+      "type": "array",
+      "min": 1,
+      "item_required": ["description", "quantity", "unit", "unit_price"],
+      "item_fields": {
+        "description": {
+          "label": "品名 / 描述",
+          "example": "Stainless Steel Widget, Model X1"
+        },
+        "quantity": { "label": "数量", "type": "number", "example": 100 },
+        "unit": { "label": "单位", "example": "PCS / SET / CTN" },
+        "unit_price": { "label": "单价", "type": "number", "example": 10.0 },
+        "total_price": {
+          "label": "行总价",
+          "type": "number",
+          "note": "自动计算 = quantity * unit_price，不要问用户"
+        },
+        "hs_code": { "label": "HS 编码", "example": "73269090" },
+        "origin": { "label": "该项原产地" }
+      }
+    }
+  }
+}

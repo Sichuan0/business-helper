@@ -1,0 +1,26 @@
+{
+  "doc_type": "proforma_invoice",
+  "pi_number": "PI-2026-001",
+  "pi_date": "2026-07-07",
+  "seller_name": "Shanghai ABC Trading Co., Ltd.",
+  "seller_address": "123 Factory Road, Pudong, Shanghai, China",
+  "seller_contact": "Tel: +86-21-12345678  Email: sales@abc.com",
+  "seller_tax_id": "91310000XXXXXXXX0X",
+  "buyer_name": "XYZ Import GmbH",
+  "buyer_address": "456 Market Street, 10117 Berlin, Germany",
+  "buyer_contact": "Tel: +49-30-12345678",
+  "buyer_tax_id": "DE123456789",
+  "incoterms": "FOB Shanghai",
+  "currency": "USD",
+  "payment_terms": "30% T/T in advance, 70% before shipment",
+  "delivery_time": "30 days after order confirmation",
+  "validity": "This PI is valid for 30 days",
+  "origin": "China",
+  "shipping_method": "By sea",
+  "remarks": "Packing: export-standard cartons.",
+  "items": [
+    {"description": "Stainless Steel Widget, Model X1", "hs_code": "73269090", "quantity": 100, "unit": "PCS", "unit_price": 10.0, "total_price": 1000.0},
+    {"description": "Widget Accessory Kit", "hs_code": "73269090", "quantity": 50, "unit": "SET", "unit_price": 20.0, "total_price": 1000.0}
+  ],
+  "total_amount": 2000.0
+}
